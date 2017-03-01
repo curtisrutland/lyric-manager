@@ -16,8 +16,11 @@ export class NavMenuComponent implements OnInit {
   constructor(private auth: FirebaseService) { }
 
   ngOnInit() {
-    this.auth.login().subscribe(user => {
-      this.user = user;
+    // this.auth.login().subscribe(user => {
+    //   this.user = user;
+    // });
+    this.auth.user$.subscribe(u => {
+      if(u) this.user = u;
     });
   }
 

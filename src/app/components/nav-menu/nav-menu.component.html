@@ -10,10 +10,13 @@
           <a href="#" class="nav-link active">Home</a>
         </li>
       </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search...">
+      </form>
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <a href="#" class="nav-link photo">
-            <img *ngIf="user" class="rounded-circle photo" [src]="user.photoUrl">
+            <img *ngIf="user" class="rounded-circle photo" [src]="user.photoUrl" [title]="user.name" [alt]="user.name">
           </a>
         </li>
       </ul>

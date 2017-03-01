@@ -6,24 +6,21 @@ import { AngularFireModule, AuthProviders, AuthMethods } from "angularfire2";
 
 import { AppComponent, NavMenuComponent } from './components';
 import { FirebaseService } from "./services";
+import { environment } from "../environments/environment";
+import { SongListComponent } from './components/song-list/song-list.component';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCtCTiWyV5AkeBDWEdZigOEgoatoHOVurw",
-  authDomain: "lyric-manager.firebaseapp.com",
-  databaseURL: "https://lyric-manager.firebaseio.com",
-  storageBucket: "lyric-manager.appspot.com",
-  messagingSenderId: "675822039148"
-};
+const firebaseConfig = environment.fbConfig;
 
 const firebaseAuthConfig = {
   provider: AuthProviders.Google,
   method: AuthMethods.Redirect
-}
+};
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    SongListComponent
   ],
   imports: [
     BrowserModule,

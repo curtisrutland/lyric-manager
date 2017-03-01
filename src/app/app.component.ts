@@ -9,12 +9,18 @@ import { Song } from "./models";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  songs$: FirebaseListObservable<Song[]>;
+  //songs$: FirebaseListObservable<Song[]>;
+  isAuthed: boolean = undefined;
 
   constructor(private fb: FirebaseService) { }
 
   ngOnInit() {
-    this.fb.getSongs();
-    this.songs$ = this.fb.songs$;
+    this.fb.user$.map(u => !!u).subscribe(b => this.isAuthed = b);
+    // this.fb.getSongs();
+    // this.songs$ = this.fb.songs$;
+  }
+
+  login() {
+    this.fb.login();
   }
 }
