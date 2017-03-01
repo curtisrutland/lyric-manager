@@ -1,0 +1,21 @@
+<nav-menu></nav-menu>
+<main>
+  <div class="container">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let song of songs$ | async">
+        {{song.title}}
+      </li>
+    </ul>
+  </div>
+</main>
+<!--<main class="container">
+  <ul>
+    <li class="text" *ngFor="let item of items | async">
+      <button class="btn btn-outline-primary" (click)="selectedItem = item">
+      {{item.$key}} : {{item.$value}}
+    </button>
+    </li>
+  </ul>
+
+  {{ selectedItem?.$value }} {{ user | json }}
+</main>-->
